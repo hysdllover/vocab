@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>수능특강 영어 통합 단어장 (A–Z)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+<meta name="theme-color" content="#3a4861">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="favicon-32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="단어장">
+<style>
+:root{
+  --navy:#3a4861; --navy-soft:#5a6a86; --navy-bg:#eef1f6;
+  --olive:#6b7355; --olive-bg:#f0f1ea;
+  --violet:#8a7aa6; --violet-bg:#f2eef6;
+  --rose:#a86f7d; --rose-bg:#f6eef0;
+  --ink:#2b2b2f; --ink2:#54545c; --line:#e6e0d6; --paper:#fbf9f5;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+body{font-family:'Noto Sans KR',sans-serif;background:var(--paper);color:var(--ink);line-height:1.5;}
+.wrap{max-width:820px;margin:0 auto;padding:30px 26px 80px;}
+
+/* cover */
+.cover{text-align:center;padding:14px 0 22px;border-bottom:1.5px solid var(--line);}
+.cover .tag{font-size:12px;letter-spacing:.32em;color:var(--olive);font-weight:500;text-transform:uppercase;}
+.cover h1{font-family:'Cormorant Garamond',serif;font-size:46px;line-height:1.1;color:var(--navy);margin:12px 0 6px;}
+.cover .ko-title{font-size:16px;font-weight:500;color:var(--ink);letter-spacing:.02em;}
+.cover .meta{margin-top:14px;font-size:12px;color:var(--navy-soft);display:flex;gap:20px;justify-content:center;flex-wrap:wrap;letter-spacing:.04em;}
+
+/* toolbar (screen only) */
+.tools{display:flex;gap:9px;align-items:center;flex-wrap:wrap;margin:20px 0 6px;}
+.search{flex:1;min-width:180px;display:flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:9px;padding:8px 13px;background:#fff;}
+.search svg{flex:none;}
+.search input{border:0;outline:0;width:100%;font-family:inherit;font-size:13.5px;color:var(--ink);background:transparent;font-weight:300;}
+.btn{border:1px solid var(--line);background:#fff;color:var(--ink2);font-family:inherit;font-size:12.5px;font-weight:400;padding:8px 13px;border-radius:9px;cursor:pointer;transition:.12s;white-space:nowrap;}
+.btn:hover{border-color:var(--navy-soft);color:var(--navy);}
+.btn.on{background:var(--navy);color:#fff;border-color:var(--navy);}
+.progress-wrap{display:flex;align-items:center;gap:9px;font-size:12px;color:var(--ink2);width:100%;margin-top:4px;}
+.bar{flex:1;height:5px;background:var(--line);border-radius:4px;overflow:hidden;}
+.bar i{display:block;height:100%;width:0;background:var(--olive);transition:.25s;}
+
+/* A-Z nav */
+.aznav{display:flex;flex-wrap:wrap;gap:5px;margin:14px 0 6px;}
+.aznav a{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:13px;color:var(--navy-soft);text-decoration:none;width:24px;height:24px;display:flex;align-items:center;justify-content:center;border:1px solid var(--line);border-radius:6px;transition:.12s;}
+.aznav a:hover{background:var(--navy);color:#fff;border-color:var(--navy);}
+
+/* alphabet group */
+.alpha{display:flex;align-items:baseline;gap:10px;margin:26px 0 8px;padding-bottom:5px;border-bottom:1.5px solid var(--navy);break-inside:avoid;break-after:avoid;}
+.alpha .L{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:600;color:var(--navy);line-height:1;}
+.alpha .c{font-size:11px;color:var(--ink2);font-weight:300;}
+
+/* entry */
+.list{margin-top:4px;}
+.entry{display:flex;gap:10px;padding:9px 2px;border-bottom:1px solid var(--line);break-inside:avoid;}
+.entry .body{flex:1;min-width:0;}
+.l1{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap;}
+.en{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:17px;color:var(--navy);letter-spacing:.01em;}
+.ko{font-size:13px;color:var(--ink);font-weight:400;}
+.sa{font-size:11.6px;line-height:1.5;margin-top:2px;}
+.sa .lab{font-weight:500;display:inline-block;width:13px;}
+.syn{color:#5d7a52;font-weight:300;}
+.ant{color:var(--rose);font-weight:300;}
+.syn .lab{color:var(--olive);} .ant .lab{color:var(--rose);}
+
+/* checkbox */
+.chk{width:15px;height:15px;border:1.4px solid var(--navy-soft);border-radius:4px;cursor:pointer;flex:none;margin-top:4px;position:relative;transition:.12s;}
+.chk.checked{background:var(--olive);border-color:var(--olive);}
+.chk.checked::after{content:"";position:absolute;left:4.4px;top:1px;width:4px;height:8px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg);}
+.entry.done .en,.entry.done .ko{opacity:.38;text-decoration:line-through;}
+
+/* hide-meaning */
+body.hideMode .ko,body.hideMode .sa{color:transparent!important;}
+body.hideMode .ko,body.hideMode .syn,body.hideMode .ant{background:#f1ede6;border-radius:3px;cursor:pointer;}
+body.hideMode .sa .lab{color:transparent!important;}
+.reveal,.reveal .lab{color:inherit!important;background:transparent!important;}
+.reveal .lab{color:inherit!important;}
+
+.foot{text-align:center;margin-top:40px;font-size:11px;color:#b7b1a6;font-family:'Cormorant Garamond',serif;font-style:italic;letter-spacing:.04em;}
+.hidden{display:none!important;}
+
+@media (max-width:560px){
+  .wrap{padding:22px 16px 60px;} .cover h1{font-size:36px;}
+  .en{font-size:16px;}
+}
+
+/* ===== PRINT (A4, 2 columns) ===== */
+@media print{
+  @page{size:A4;margin:12mm 11mm;}
+  body{background:#fff;}
+  .wrap{max-width:none;padding:0;}
+  .no-print{display:none!important;}
+  body.hideMode .ko,body.hideMode .sa,body.hideMode .syn,body.hideMode .ant,body.hideMode .sa .lab{color:inherit!important;background:transparent!important;}
+  .entry.done .en,.entry.done .ko{opacity:1;text-decoration:none;}
+  .cover{padding:6px 0 16px;} .cover h1{font-size:40px;}
+  .list{columns:2;column-gap:20px;}
+  .alpha{column-span:all;margin:16px 0 6px;}
+  .alpha:first-of-type{margin-top:10px;}
+  .entry{padding:5px 0;break-inside:avoid;}
+  .en{font-size:13.5px;} .ko{font-size:10.8px;} .sa{font-size:9.5px;}
+  .foot{column-span:all;}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="cover">
+    <div class="tag">Vocabulary</div>
+    <h1>수능특강 영어 단어장</h1>
+    <div class="ko-title">통합 · 중복 제거 &nbsp;|&nbsp; A–Z 정렬</div>
+    <div class="meta"><span>WORDS&nbsp;290</span><span>A&ndash;Z</span><span>유의어 · 반의어 수록</span></div>
+  </div>
+
+  <div class="tools no-print">
+    <div class="search">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#9a948a" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.5" y2="16.5"/></svg>
+      <input id="q" type="text" placeholder="단어 또는 뜻 검색...">
+    </div>
+    <button class="btn" id="btnHide">뜻 가리기</button>
+    <button class="btn" id="btnReset">체크 초기화</button>
+    <button class="btn" id="btnPrint">인쇄 / PDF</button>
+    <div class="progress-wrap"><span>암기</span><div class="bar"><i id="barFill"></i></div><span id="barTxt">0 / 290</span></div>
+  </div>
+
+  <div class="aznav no-print" id="aznav"></div>
+
+  <div class="list" id="root"></div>
+
+  <div class="foot">Suyeo High School 3-1 &middot; Integrated Vocabulary</div>
+</div>
+
+<script>
+const DATA=[
+["absorbed","a. 몰두한, 열중한","engrossed, immersed, captivated, preoccupied","distracted, indifferent, uninterested, detached"],
+["accelerate","v. 가속화하다, 촉진하다","hasten, speed up, quicken, expedite","decelerate, slow down, impede, hinder"],
+["acceptance","n. 수용, 용인","approval, embrace, recognition, admission","rejection, refusal, denial, exclusion"],
+["access","n(v). 접근(하다), 입장(하다)","entry, admittance, approach, obtain, retrieve","exclusion, denial, restriction, block, prevent"],
+["accustomed","a. 익숙한, 습관이 된","familiar, habituated, inured, seasoned","unaccustomed, unfamiliar, alien, new"],
+["activate","v. 활성화하다, 작동시키다","energize, stimulate, initiate, enable, engage","deactivate, suppress, inhibit, calm, disable"],
+["actual","a. 실제의, 현실의, 사실상의","real, genuine, tangible, authentic, verifiable","hypothetical, theoretical, imagined, false, fictitious"],
+["addictive","a. 중독성의, 습관적인","habit-forming, compelling, enslaving, captivating","non-addictive, harmless, repellent, aversive"],
+["advent","n. 도래, 출현","arrival, emergence, onset, initiation","departure, disappearance, end, conclusion"],
+["affirm","v. 단언하다, 확인하다","assert, confirm, declare, validate","deny, reject, contradict, refute"],
+["affordable","a. 감당할 수 있는, 알맞은 가격의","economical, reasonable, inexpensive, budget-friendly","costly, expensive, exorbitant, unaffordable"],
+["alter","v. 변경하다, 바꾸다","modify, adjust, change, transform","maintain, preserve, retain, keep"],
+["altered","a. 변경된, 바뀐","modified, adjusted, transformed, revised","unchanged, stable, constant, fixed"],
+["alternative","a(n). 대안의, 대체의 (대안)","substitute, optional, different, choice, option","primary, original, mandatory, necessity"],
+["altruistic","a. 이타적인","selfless, benevolent, philanthropic, charitable","selfish, egoistic, self-centered, egocentric"],
+["anachronistic","a. 시대착오적인, 시대에 맞지 않는","outdated, ill-timed, misplaced, incongruous","timely, appropriate, synchronous, congruous"],
+["appropriate","a. 적절한, 알맞은","suitable, proper, fitting, apt","inappropriate, unsuitable, improper, unfitting"],
+["asleep","a. 잠든","sleeping, dormant, unconscious","awake, alert, conscious, wakeful"],
+["associate","a. 관련된, 연관된, 제휴한","connected, linked, related, coupled, affiliated","separated, disconnected, unrelated, detached"],
+["associated","a. 관련된, 연관된","related, connected, linked, correlated","unrelated, disconnected, separate, independent"],
+["assume","v. 가정하다, 추정하다","presume, suppose, hypothesize, infer","prove, verify, confirm, ascertain"],
+["attitude","n. 태도, 자세, 견해","disposition, stance, perspective, outlook","indifference, apathy, detachment, disinterest"],
+["authentic","a. 진짜의, 믿을 만한","genuine, real, legitimate, bona fide","fake, counterfeit, bogus, spurious"],
+["automatic","a. 자동적인, 무의식적인","mechanical, involuntary, spontaneous, unconscious","manual, deliberate, voluntary, conscious"],
+["barrier","n. 장벽, 장애물","obstacle, hindrance, impediment, obstruction","bridge, opening, gateway, facilitator"],
+["bear","v. 참다, 견디다, 지탱하다","tolerate, endure, withstand, put up with, suffer","surrender, yield, succumb, give in, give up"],
+["beneficial","a. 유익한, 이로운","advantageous, favorable, helpful, profitable","detrimental, harmful, disadvantageous, adverse"],
+["bent","a. 구부러진, 굽은","curved, crooked, warped, angular","unbent, rigid, erect, unflexed"],
+["biased","a. 편향된, 선입견이 있는","prejudiced, partial, unfair, skewed","unbiased, impartial, objective, fair"],
+["blend","n(v). 혼합(하다)","mixture, combination, fusion, mix, integrate","separation, division, segregation, separate, divide"],
+["boost","n. 격려, 증진, 부양","encouragement, enhancement, uplift, impetus","hindrance, reduction, setback, impediment"],
+["bring about","v. 야기하다, 초래하다","cause, produce, generate, effectuate, induce","prevent, avert, obstruct, hinder, restrain"],
+["capable","a. ~할 수 있는, 유능한","competent, proficient, adept, skilled","incapable, incompetent, unable, inefficient"],
+["capacity","n. 능력, 용량","ability, capability, faculty, volume","inability, incapability, inadequacy, limitation"],
+["challenge","v. 반박하다, 이의를 제기하다","dispute, question, contest, defy","accept, agree, support, endorse"],
+["characterize","v. 특징 짓다, ~의 특징이 되다","distinguish, define, typify, mark, delineate","obscure, hide, misrepresent, confuse, mask"],
+["civilization","n. 문명","culture, society, advancement, progress","barbarism, savagery, primitivism, wilderness"],
+["collective","a. 집단의, 공동의","communal, shared, unified","individual, separate, divided"],
+["commute","n(v). 통근(하다)","travel, journey, daily trip, go back and forth","reside, stay, remain, immobility, settlement"],
+["compelling","a. 설득력 있는, 강렬한, 주목하지 않을 수 없는","persuasive, convincing, gripping, captivating","unconvincing, weak, dull, uninteresting"],
+["compete","v. 경쟁하다, 겨루다","contend, vie, rival, contest","collaborate, cooperate, concede, yield"],
+["complement","v. 보완하다, 보충하다","enhance, complete, supplement","contradict, undermine, detract"],
+["completely","adv. 완전히, 전적으로","entirely, wholly, thoroughly, absolutely","partially, incompletely, somewhat, slightly"],
+["concern","n. 우려, 걱정, 관심사","worry, anxiety, apprehension, uneasiness","calm, tranquility, indifference, composure"],
+["conclusion","n. 결론, 종결","deduction, inference, outcome, resolution","premise, beginning, introduction, inception"],
+["confine","v. 제한하다, 가두다","restrict, limit, restrain, imprison","release, free, liberate, broaden"],
+["confined","a. 제한된, 갇힌","restricted, bounded, limited, imprisoned","unrestricted, boundless, free, open"],
+["connectivity","n. 연결성, 연결 능력","connection, linkage, coherence, interdependence","disconnection, separation, fragmentation, isolation"],
+["conscious","a. 의식하는, 자각하는, 의식적인","aware, cognizant, mindful, perceptive","unconscious, unaware, oblivious, insensible"],
+["consensus","n. 합의, 의견 일치","agreement, accord, unanimity, concord","disagreement, discord, dissent, dispute"],
+["conservation","n. 보존, 보호","preservation, protection, safeguarding, upkeep","destruction, squandering, waste, depletion"],
+["consistent","a. 일관된, 모순 없는","coherent, uniform, constant, steady","inconsistent, erratic, changeable, variable"],
+["constant","a. 일정한, 변함없는, 끊임없는","consistent, steady, invariable, continuous","variable, erratic, fluctuating, intermittent"],
+["constitute","v. 구성하다, ~이 되다, 설립하다","compose, comprise, form, establish, make up","dismantle, disintegrate, abolish, dissolve, demolish"],
+["constrain","v. 제한하다, 강요하다, 억제하다","restrict, limit, compel, oblige","liberate, release, permit, allow"],
+["consume","v. 소비하다, 섭취하다","ingest, devour, utilize, expend","produce, generate, create, yield"],
+["contact","n(v). 접촉(하다), 연락(하다)","connection, communication, interaction, reach","separation, isolation, detachment, avoidance"],
+["contemporary","a. 현대의, 동시대의","modern, current, present-day, coexistent","ancient, old-fashioned, past, archaic"],
+["contrast","n(v). 대비(하다), 대조(를 이루다)","difference, divergence, distinction, comparison","similarity, resemblance, conformity, likeness"],
+["controversial","a. 논란이 많은, 논쟁의","debatable, disputed, contentious, contested","undisputed, settled, agreed, clear"],
+["convention","n. 관습, 관례, 회의","custom, practice, tradition, protocol","deviation, novelty, exception, anomaly"],
+["conversely","adv. 반대로, 역으로","contrarily, oppositely, in contrast, on the contrary","similarly, likewise, equally, correspondingly"],
+["convey","v. 전달하다, 운반하다","transmit, communicate, impart, relay","withhold, retain, conceal, suppress"],
+["convince","v. 확신시키다, 납득시키다","persuade, assure, satisfy, prove","dissuade, deter, doubt, mislead"],
+["convincing","a. 설득력 있는, 납득시키는","persuasive, compelling, plausible, credible","unconvincing, implausible, doubtful, weak"],
+["cooperative","a. 협력적인, 협동하는","collaborative, synergistic, harmonious, reciprocal","uncooperative, antagonistic, competitive, divisive"],
+["costly","a. 값비싼, 대가가 큰, 손실이 큰","expensive, dear, extravagant, prohibitive","cheap, inexpensive, economical, affordable"],
+["couch","v. 표현하다, 묘사하다, 말하다","express, phrase, formulate, articulate","hide, conceal, suppress, obscure"],
+["counterpart","n. 상대방, 대응물","equivalent, peer, parallel","opposite, contrast, inverse"],
+["crisis","n. 위기, 어려운 상황","emergency, dilemma, predicament, exigency","stability, calm, tranquility, resolution"],
+["criticize","v. 비판하다, 비난하다, 꾸짖다","censure, condemn, denounce, disparage, reproach","praise, commend, approve, laud, flatter"],
+["cultured","a. 배양된, 교양 있는","cultivated, laboratory-grown, artificial","natural, wild, unprocessed"],
+["customize","n(v). 맞춤 제작(하다), 주문 제작(하다)","personalize, tailor, modify, adapt, individualize","standardize, generalize, uniformize, homogenize"],
+["danger","n. 위험, 위협","peril, hazard, threat, risk","safety, security, protection, assurance"],
+["dangerous","a. 위험한","hazardous, perilous, unsafe, risky","safe, harmless, secure, benign"],
+["dated","a. 시대에 뒤떨어진, 구식의","antiquated, obsolete, archaic, old-fashioned","modern, contemporary, current, up-to-date"],
+["deceive","v. 속이다, 기만하다","mislead, trick, delude, defraud","enlighten, inform, undeceive, reveal"],
+["deceived","a. 속은, 기만당한","misled, deluded, tricked","informed, enlightened, aware"],
+["decentralization","n. 분권화, 지방 분권","dispersion, devolution, diffusion, scattering","centralization, concentration, unification, consolidation"],
+["decrease","v. 감소하다, 줄다","lessen, reduce, diminish, decline","increase, grow, expand, rise"],
+["defend","v. 방어하다, 변호하다, 옹호하다","protect, guard, advocate, justify","attack, assault, surrender, abandon"],
+["defensive","a. 방어적인, 자기 방어적인, 수비의","protective, resistant, self-protective, wary, guarded","open, receptive, vulnerable, approachable, offensive"],
+["deficiency","n. 부족, 결핍","shortage, lack, inadequacy, deficit","abundance, surplus, excess, sufficiency"],
+["delegitimize","v. 정당성을 박탈하다, 비합법화하다","invalidate, discredit, undermine, disempower","legitimize, validate, authorize, empower"],
+["deliberate","a. 의도적인, 신중한","intentional, planned, purposeful, calculated","accidental, unintentional, spontaneous, impulsive"],
+["demand","n(v). 수요, 요구(하다)","request, requirement, insistence, call for","supply, offer, provision, concede, yield"],
+["demonstrate","v. 입증하다, 보여주다, 시위하다","prove, show, illustrate, confirm","conceal, disprove, hide, refute"],
+["density","n. 밀도, 조밀도","compactness, concentration, thickness, mass","sparsity, rarity, diffuseness, thinness, scarcity"],
+["depth","n. 깊이, 심오함","profoundness, extent, profundity, abyss","surface, shallowness, superficiality, frivolity"],
+["desire","n(v). 욕구, 갈망(하다)","longing, craving, wish, aspiration, yearn for","aversion, dislike, repulsion, indifference, abhor"],
+["despair","n. 절망","hopelessness, desperation, despondency, gloom","hope, optimism, encouragement, cheer"],
+["detach","v. 분리하다, 떼어내다","separate, disconnect, unfasten, disengage, sever","attach, connect, join, fasten, unite"],
+["devote","v. 헌신하다, 바치다","dedicate, commit, consecrate, allocate","neglect, abandon, disregard, withhold"],
+["differentiate","v. 구별하다, 차별화하다","distinguish, separate, contrast, discriminate","equalize, homogenize, unify, assimilate"],
+["disarm","v. 무장해제시키다, (위협을) 제거하다","neutralize, defuse, pacify, mollify","arm, activate, provoke, intensify"],
+["disaster","n. 재난, 참사","catastrophe, calamity, tragedy, devastation","blessing, fortune, success, boon"],
+["disastrous","a. 비참한, 재앙의","catastrophic, devastating, calamitous, ruinous","fortunate, successful, beneficial, favorable"],
+["dislike","n(v). 싫어함, 혐오(하다)","aversion, distaste, antipathy, detest, abhor","liking, fondness, affection, enjoy, cherish"],
+["display","n(v). 과시(하다), 표현(하다), 진열(하다)","exhibition, demonstration, show, present, manifest","concealment, hiding, disguise, suppression, obscure"],
+["distinct","a. 별개의, 뚜렷이 다른","separate, different, discrete, unique","identical, similar, indistinguishable, common"],
+["distinguish","v. 구별하다, 분간하다","differentiate, discern, discriminate, separate","confuse, mix, conflate, blend"],
+["distort","v. 왜곡하다, 비틀다","twist, misrepresent, pervert, warp","clarify, straighten, represent accurately, verify"],
+["distorted","a. 왜곡된, 비뚤어진","twisted, misrepresented, biased, warped","accurate, clear, unbiased, true"],
+["diverse","a. 다양한, 다른 종류의","varied, assorted, manifold, distinct","uniform, homogeneous, identical, similar"],
+["diversify","v. 다양화하다, 다각화하다","vary, broaden, expand, differentiate","standardize, unify, narrow, restrict"],
+["document","v. 기록하다, 문서화하다","record, chronicle, register, report","obscure, hide, suppress, conceal"],
+["dominant","a. 지배적인, 우세한","predominant, prevailing, commanding, superior","subordinate, secondary, subservient, minor"],
+["dose","n. 복용량, 투여량","quantity, portion, measure, amount","deficiency, scarcity, lack, shortage"],
+["doubter","n. 회의론자, 의심하는 사람","skeptic, disbeliever, unbeliever, cynic","believer, adherent, optimist, conformist"],
+["drastically","adv. 과감하게, 급격하게, 철저하게","severely, radically, profoundly, substantially","slightly, mildly, moderately, minimally"],
+["duration","n. 지속 기간, 내구성","period, length, span, term","brevity, shortness, transience, fleetingness"],
+["ease","v. 완화하다, 편하게 하다","alleviate, relieve, soothe, lighten","aggravate, intensify, worsen, burden"],
+["eliminate","v. 제거하다, 없애다","remove, abolish, eradicate, discard","include, retain, incorporate, introduce"],
+["embodied","a. 구체화된, 구현된, 체현된","materialized, incarnated, personified, represented","disembodied, abstract, spiritual, intangible"],
+["emerging","a. 떠오르는, 신흥의, 새로 나타나는","developing, rising, nascent, budding","declining, disappearing, fading, obsolete"],
+["emphasis","n. 강조, 역점","stress, prominence, accentuation, weight","understatement, triviality, neglect, deemphasis"],
+["empirical","a. 경험적인, 실증적인","experimental, observational, verifiable, practical","theoretical, abstract, speculative, unproven"],
+["empiricism","n. 경험주의, 경험론","experimentalism, pragmatism, practicality","rationalism, idealism, theory"],
+["endorse","v. 지지하다, 승인하다, 보증하다","approve, support, sanction, advocate","reject, oppose, condemn, disapprove"],
+["endure","v. 참다, 견디다","tolerate, bear, withstand, suffer","surrender, yield, succumb, give in"],
+["engage","v. 관여하다, (주의를) 끌다, 종사하다","involve, attract, engross, occupy","disengage, detach, alienate, exclude"],
+["equally","adv. 동등하게, 마찬가지로","uniformly, identically, similarly, likewise","unequally, differently, disproportionately, unevenly"],
+["essential","a. 필수적인, 본질적인","vital, crucial, indispensable, fundamental","nonessential, superfluous, peripheral, trivial"],
+["evocative","a. 환기시키는, 연상시키는","reminiscent, suggestive, expressive, moving","uninspiring, forgettable, repressive, dull"],
+["evolve","v. 진화하다, 발전하다","develop, progress, adapt, advance","devolve, regress, stagnate, degenerate"],
+["exacerbate","v. 악화시키다, 더 심하게 하다","aggravate, worsen, intensify, compound","alleviate, mitigate, relieve, improve"],
+["exceed","v. 초과하다, 넘어서다","surpass, outstrip, overcome, transcend","fall short of, fail, undershoot, lack"],
+["exchange","n(v). 교환(하다), 교류(하다)","trade, swap, interchange, communication","retention, hoarding, withholding, separation"],
+["exclusive","a. 독점적인, 배타적인, 고급의","restricted, private, unique, select","inclusive, common, shared, public"],
+["exist","v. 존재하다, 실존하다","subsist, persist, endure, live","cease, perish, vanish, disappear"],
+["expansion","n. 확장, 팽창","growth, increase, enlargement, spread","contraction, reduction, decrease, shrinkage"],
+["experience","n(v). 경험(하다), 체험(하다)","encounter, undergo, sensation, knowledge","inexperience, avoidance, evasion, ignorance"],
+["experiential","a. 경험적인, 체험적인","empirical, practical, firsthand","theoretical, abstract, conceptual"],
+["explore","v. 탐구하다, 탐험하다","investigate, examine, delve into, probe","ignore, neglect, overlook, disregard"],
+["expression","n. 표현, 표정","indication, manifestation, utterance, display","suppression, concealment, repression, hiddenness"],
+["extreme","a. 극심한, 극단적인 / n. 극단, 극단적인 상태","severe, intense, radical, utmost / excess, limit, maximum","moderate, mild, lenient, ordinary / moderation, middle ground, norm"],
+["facilitate","v. 용이하게 하다, 촉진하다","ease, aid, assist, enable","hinder, obstruct, impede, block"],
+["failure","n. 실패, 실패작","setback, defeat, fiasco, collapse","success, triumph, achievement, victory"],
+["fake","v(a). 위조(하다), 꾸며내다, 가짜의","falsify, counterfeit, simulate, feign, spurious, bogus","authenticate, verify, prove, genuine, authentic, real"],
+["false","a. 거짓된, 그릇된, 틀린","untrue, incorrect, erroneous, misleading","accurate, valid, genuine, authentic"],
+["favor","n(v). 선호(하다), 지지(하다)","preference, support, endorse, approval, advocacy","opposition, disapprove, object, dislike, rejection"],
+["flatten","v. 평평하게 하다, 획일화하다","level, smooth, equalize, homogenize","raise, elevate, differentiate, diversify"],
+["flexibility","n. 유연성, 융통성","adaptability, versatility, pliancy, resilience","rigidity, inflexibility, stiffness, obstinacy, firmness"],
+["focus","n(v). 초점(을 맞추다), 집중(하다)","highlight, emphasize, concentrate, center","disperse, distract, scatter, generalize"],
+["force","v. 강요하다, ~하게 만들다","compel, coerce, oblige, necessitate","allow, permit, enable, dissuade"],
+["fragmentation","n. 파편화, 분열, 단편화","splintering, division, disintegration, segregation","unification, integration, consolidation, coherence"],
+["fruitful","a. 결실이 많은, 생산적인, 유익한","productive, prolific, fertile, advantageous","unproductive, futile, barren, useless"],
+["grief","n. 큰 슬픔, 비탄","sorrow, anguish, distress, woe","joy, happiness, delight, exhilaration"],
+["grossly","adv. 지독히, 극도로, 심하게","severely, flagrantly, heinously, excessively","mildly, subtly, slightly, minimally"],
+["grounded","a. 근거를 둔, 기초한","based, founded, established, supported","unfounded, baseless, unsupported, unproven"],
+["guide","v. 안내하다, 인도하다","direct, lead, steer, escort","mislead, misdirect, deter, hinder"],
+["guilty","a. 죄책감을 느끼는, 유죄의, 책임이 있는","culpable, blameworthy, remorseful, responsible","innocent, blameless, faultless, clear"],
+["halt","n(v). 멈춤(멈추다), 중단(시키다)","stop, cease, pause, suspend, cessation","continue, resume, proceed, advance, start"],
+["harmful","a. 해로운, 유해한","detrimental, damaging, injurious, noxious","harmless, beneficial, advantageous, salutary"],
+["hinder","v. 방해하다, 저해하다","obstruct, impede, inhibit, deter","facilitate, aid, assist, promote"],
+["honest","a. 정직한, 솔직한, 성실한","truthful, candid, sincere, straightforward","dishonest, deceitful, false, insincere"],
+["humanized","a. 인간화된, 인간미를 불어넣은","personalized, empathized, softened, civilized","dehumanized, objectified, impersonal, alienated"],
+["identity","n. 정체성","individuality, selfhood, character","anonymity, sameness, indistinctness"],
+["ignore","v. 무시하다, 간과하다","disregard, overlook, neglect, dismiss","acknowledge, notice, heed, consider"],
+["illustrate","v. 설명하다, 예증하다, 그림을 그리다","demonstrate, exemplify, elucidate, clarify","obscure, confuse, obfuscate, mystify"],
+["immediate","a. 즉각적인, 당면한","instant, prompt, urgent, current","delayed, future, remote, eventual"],
+["immune","a. 면역의, 면역성이 있는","resistant, protected, unaffected, invulnerable","susceptible, vulnerable, exposed, unprotected"],
+["implementation","n. 이행, 실행, 구현","execution, enactment, application, deployment","failure, neglect, abandonment, cancellation"],
+["import","v. (사상·문화를) 도입하다, 들여오다","introduce, bring in, adopt, incorporate","export, remove, exclude, omit"],
+["inaccessible","a. 접근하기 어려운","unreachable, remote, isolated, unapproachable","accessible, reachable, available, approachable"],
+["inaccuracy","n. 부정확성, 오류","error, fault, mistake, imprecision","accuracy, precision, correctness, exactness"],
+["incentive","n. 유인책, 장려책, 동기","stimulus, inducement, motivation, encouragement","deterrent, disincentive, discouragement, hindrance"],
+["inconceivable","a. 상상할 수 없는, 믿을 수 없는","unimaginable, unbelievable, unthinkable","conceivable, imaginable, plausible"],
+["increase","n(v). 증가(하다)","rise, grow, expand, escalate, surge","decrease, decline, diminish, reduce, drop"],
+["indigenous","a. 토착의, 고유의","native, aboriginal, endemic, local","foreign, alien, imported, introduced"],
+["individual","n(a). 개인(적인), 개별적인","person, unique, distinct, personal, particular","collective, group, shared, general, communal"],
+["indulge","v. 탐닉하다, 욕구를 채우다","gratify, pamper, wallow, satiate","deny, refrain, restrict, curb"],
+["inference","n. 추론, 추리","deduction, conclusion, reasoning, implication","observation, premise, statement, assumption"],
+["influential","a. 영향력 있는","powerful, significant, dominant, persuasive","insignificant, powerless, weak, ineffective"],
+["informed","a. 정보에 입각한, 잘 아는","knowledgeable, educated, aware, enlightened","ignorant, uninformed, naive, uneducated"],
+["inherent","a. 내재하는, 타고난","intrinsic, innate, inborn, natural","acquired, extrinsic, external, learned"],
+["innate","a. 타고난, 선천적인","inherent, inborn, natural, intrinsic","acquired, learned, extrinsic, external"],
+["innovation","n. 혁신, 쇄신","novelty, modernization, breakthrough","tradition, stagnation, conservatism"],
+["insult","n(v). 모욕(하다)","offense, affront, indignity, disrespect, offend","compliment, praise, respect, honor"],
+["intention","n. 의도, 목적","purpose, aim, objective, motive","accident, inadvertence, chance, fortuity"],
+["interference","n. 방해, 간섭","obstruction, hindrance, intervention, disruption","assistance, facilitation, cooperation, aid"],
+["interpret","v. 해석하다, 이해하다","construe, understand, decipher, explain","misinterpret, misunderstand, distort, obscure"],
+["intervention","n. 개입, 중재","interference, mediation, involvement, intrusion","non-intervention, abstinence, withdrawal, detachment"],
+["investigate","v. 조사하다, 연구하다","research, examine, explore, scrutinize","overlook, ignore, neglect, disregard"],
+["invisible","a. 보이지 않는, 감지할 수 없는","unseen, undetectable, hidden, imperceptible","visible, apparent, perceptible, detectable"],
+["involuntary","a. 무의식적인, 본의 아닌","unconscious, automatic, spontaneous, instinctive","voluntary, intentional, conscious, deliberate"],
+["lack","n(v). 부족(하다), 결핍(되다)","deficiency, scarcity, absence, want, need","abundance, surplus, plenty, excess, possess"],
+["legitimate","a. 합법적인, 정당한, 타당한","lawful, valid, justifiable, rightful","illegitimate, unlawful, invalid, illicit"],
+["limit","n(v). 한계, 제한(하다)","restriction, boundary, constraint, confine, curb","boundlessness, freedom, expanse, expand, allow"],
+["literacy","n. 문해력, 지식, 능력","knowledge, proficiency, expertise, understanding","illiteracy, ignorance, incomprehension, inability"],
+["logical","a. 논리적인, 합리적인","rational, coherent, sound, reasonable","illogical, irrational, absurd, unsound"],
+["materiality","n. 물질성, 중요성","tangibility, physicality, substance","immateriality, abstractness, spirituality"],
+["meaningful","a. 의미 있는, 중요한","significant, substantial, profound, purposeful","meaningless, insignificant, trivial, purposeless"],
+["microscopic","a. 현미경으로만 볼 수 있는, 아주 작은","tiny, minute, infinitesimal, invisible","macroscopic, visible, huge, enormous"],
+["mischievous","a. 짓궂은, 해로운, 장난기 있는","naughty, playful, impish, troublesome, malicious","well-behaved, obedient, harmless, virtuous"],
+["misinformed","a. 잘못된 정보를 받은","misguided, deceived, misled, uninformed","informed, enlightened, educated, knowledgeable"],
+["misperception","n. 오해, 잘못된 인식","misunderstanding, misconception, error, delusion","understanding, insight, comprehension, accuracy"],
+["moderate","a. 적당한, 온건한","temperate, reasonable, balanced, restrained","immoderate, excessive, extreme, intemperate"],
+["moderation","n. 절제, 중용, 적당함","temperance, restraint, balance, prudence","excess, extremism, indulgence, immoderation"],
+["modify","v. 수정하다, 변경하다","alter, adjust, adapt, revise","maintain, preserve, retain, keep"],
+["motivate","v. 동기를 부여하다, 자극하다","inspire, prompt, stimulate, encourage","deter, discourage, dishearten, impede"],
+["mutual","a. 상호적인, 공통의","reciprocal, joint, shared, collective","unilateral, individual, independent, separate"],
+["narrow","a. 좁은, 편협한","restricted, limited, confined, prejudiced","wide, broad, expansive, open-minded"],
+["negative","a. 부정적인, 비관적인, 해로운","adverse, detrimental, unfavorable, pessimistic","positive, favorable, optimistic, beneficial"],
+["norm","n. 규범, 표준","standard, convention, rule, guideline","deviation, abnormality, exception, irregularity"],
+["normal","a. 정상적인, 보통의, 표준의","regular, standard, ordinary, typical, conventional","abnormal, unusual, peculiar, aberrant, eccentric"],
+["opposed","a. 반대되는, 대조적인","contrasting, contrary, conflicting, adverse","similar, identical, aligned, harmonious"],
+["outline","n(v). 개요(를 서술하다), 윤곽(을 그리다)","summary, sketch, draft, synopsis, delineate","detail, elaboration, expand, fill in"],
+["outsize","a. 엄청나게 큰, 과도한","enormous, immense, disproportionate, excessive","meager, trivial, minuscule, insignificant"],
+["overlap","v. 겹치다, 중복되다","coincide, superimpose, cover, extend over","diverge, separate, differ, stand apart"],
+["overwhelmed","a. 압도된, 감당할 수 없는","swamped, inundated, burdened, engulfed","underwhelmed, unburdened, relieved, composed"],
+["overwrite","v. 덮어쓰다, 잊게 하다","erase, supersede, supplant, override","preserve, retain, uphold, confirm"],
+["parallel","n(v,a). 평행(하다/한), 유사(하다/한)","analogous, comparable, counterpart, equivalent, resemble","divergent, dissimilar, unlike, contrast, opposite"],
+["participation","n. 참여, 참가","involvement, engagement, contribution, attendance","abstention, exclusion, withdrawal, absence"],
+["particular","a. 특정한, 특별한, 까다로운, 특유의","specific, distinct, peculiar, precise, detailed","general, common, universal, indiscriminate, vague"],
+["pave","v. 길을 닦다, 길을 열다","prepare, facilitate, clear, smooth","hinder, obstruct, impede, block"],
+["perception","n. 지각, 인식","insight, awareness, understanding, discernment","ignorance, blindness, misapprehension, unawareness"],
+["perpetually","adv. 영구히, 끊임없이","constantly, continuously, eternally, endlessly","temporarily, briefly, occasionally, intermittently"],
+["perspective","n. 관점, 시각","viewpoint, outlook, angle, standpoint","bias, prejudice, misconception, shortsightedness"],
+["pity","n(v). 연민, 동정(하다), 불쌍히 여기다","compassion, sympathy, mercy, commiserate, deplore","indifference, cruelty, disdain, scorn, envy"],
+["plague","v. 괴롭히다, 고통을 주다 / n. 역병","trouble, afflict, harass, torment","relieve, comfort, soothe, alleviate"],
+["plot","n. 줄거리, 구성, 음모","storyline, scheme, design, narrative","randomness, disorder, happenstance, unarrangement"],
+["powerful","a. 강력한, 영향력 있는, 힘센","potent, influential, mighty, dominant, forceful","weak, powerless, ineffective, feeble, impotent"],
+["practice","n(v). 연습(하다), 관행(실행하다)","custom, habit, convention, exercise, perform","theory, neglect, avoidance, abstention"],
+["presuppose","v. 전제하다, 예상하다","assume, presume, imply, require, stipulate","negate, disprove, refute, contradict, invalidate"],
+["problematic","a. 문제가 있는, 논란의 여지가 있는","troublesome, difficult, controversial, questionable","unproblematic, clear, straightforward, definite"],
+["prompt","v. 촉발하다, 재촉하다","provoke, stimulate, induce, trigger","deter, hinder, discourage, impede"],
+["punctuate","v. 중단시키다, 강조하다","interrupt, interspace, emphasize","continue, smooth, blur"],
+["quaint","a. 기묘한, 예스러운, 고풍스러운","old-fashioned, picturesque, charming, unusual","modern, contemporary, common, ordinary"],
+["radical","a. 급진적인, 근본적인, 과격한","extreme, fundamental, drastic, revolutionary","moderate, conventional, conservative, superficial"],
+["radically","adv. 근본적으로, 급진적으로","fundamentally, drastically, profoundly, completely","superficially, slightly, partially, moderately"],
+["rapid","a. 빠른, 신속한","swift, quick, speedy, brisk","slow, gradual, sluggish, leisurely"],
+["rationalism","n. 합리주의, 이성론","logic, reason, intellectualism, philosophy","empiricism, intuitionism, irrationality"],
+["rationalization","n. 합리화","justification, explanation, vindication, pretext","irrationality, unreasonableness, illogicality, absurdity"],
+["regulation","n. 규제, 조절, 통제","control, management, adjustment, governance","deregulation, chaos, disorder, anarchy, freedom"],
+["reinforce","v. 강화하다, 보강하다, 증진시키다","strengthen, fortify, consolidate, buttress, support","weaken, undermine, diminish, dilute, impair"],
+["reject","v. 거절하다, 거부하다, 퇴짜 놓다","refuse, decline, dismiss, spurn, repudiate","accept, approve, embrace, welcome, adopt"],
+["relative","a. 상대적인, 비교적인","comparative, correlative, dependent, subjective","absolute, independent, objective, universal"],
+["release","n(v). 방출(하다), 해방(하다), 발산(하다)","emit, discharge, liberate, unleash, issue","retain, withhold, hold, confine, restrain"],
+["relevant","a. 관련 있는, 적절한","pertinent, applicable, germane, fitting","irrelevant, inapplicable, unrelated, inappropriate"],
+["reliable","a. 신뢰할 수 있는, 믿을 수 있는","trustworthy, dependable, consistent, credible","unreliable, untrustworthy, dubious, questionable"],
+["rely","v. 의존하다, 신뢰하다","depend, trust, count, lean","distrust, disregard, abandon, forsake"],
+["resist","v. 저항하다, 반대하다","oppose, withstand, defy, object","yield, comply, submit, accept"],
+["resource","n. 자원, 재원, 수단","asset, supply, reserve, means","shortage, scarcity, deficiency, lack"],
+["restrict","v. 제한하다, 한정하다","limit, confine, restrain, curb","allow, permit, free, expand"],
+["rigid","a. 융통성 없는, 완고한, 뻣뻣한","inflexible, stiff, strict, unyielding, rigorous","flexible, adaptable, pliable, lenient, yielding"],
+["ritual","n. 의식, 의례","ceremony, rite, custom","improvisation, spontaneity, informality"],
+["sarcastic","a. 비꼬는, 풍자적인, 빈정대는","ironic, cynical, derisive, mocking, sneering","sincere, genuine, earnest, heartfelt, serious"],
+["separate","v(a). 분리하다, 나누다 (분리된, 별개의)","divide, detach, distinguish, disconnect, discrete","join, unite, combine, connect, integrate"],
+["shame","n(v). 수치(심)","disgrace, humiliation, dishonor, mortification","honor, pride, glory, praise"],
+["sharp","a. 날카로운, 예리한, 급격한, 분명한","acute, keen, intense, distinct, pungent","dull, bland, mild, vague, indistinct"],
+["shift","n(v). 변화, 이동(하다)","change, transition, move, alteration, transfer","stability, stagnation, permanence, consistency, fix"],
+["signal","n(v). 신호(를 보내다), 징후(를 나타내다)","indication, sign, gesture, warning, indicate","silence, absence, conceal, hide, suppress"],
+["stable","a. 안정된, 견고한","steady, firm, secure, constant","unstable, precarious, volatile, fluctuating"],
+["static","a. 정적인, 고정된","immobile, fixed, unchanging","dynamic, active, variable"],
+["straightforward","a. 간단한, 솔직한","direct, unambiguous, uncomplicated, clear-cut","complicated, convoluted, ambiguous, indirect"],
+["strategy","n. 전략, 방책","tactic, approach, plan, method","randomness, disorganization, impulsivity, chance"],
+["stress","n. 스트레스, 압박 / v. 강조하다, 역설하다","pressure, tension, strain, anxiety / emphasize, highlight, accentuate","relaxation, calm, ease / de-emphasize, downplay, ignore"],
+["subjective","a. 주관적인","personal, individual, biased, prejudiced","objective, impartial, unbiased, factual"],
+["subtle","a. 미묘한, 감지하기 어려운, 교묘한","delicate, nuanced, implicit, elusive","obvious, blatant, explicit, striking"],
+["suburb","n. 교외, 근교","outskirt, residential area, dormitory town, periphery","city center, downtown, metropolis, inner city"],
+["succession","n. 연속, 계승, 승계","sequence, series, progression, continuity","discontinuity, break, interruption, halt"],
+["suffering","n. 고통, 괴로움","hardship, distress, agony, misery","pleasure, joy, contentment, comfort"],
+["suspicion","n. 의심, 혐의","doubt, mistrust, skepticism, apprehension","trust, belief, confidence, certainty"],
+["sustainable","a. 지속 가능한, 유지할 수 있는","enduring, viable, ecological, renewable","unsustainable, temporary, fleeting, exhaustible"],
+["temperate","a. 온화한, 절제된","mild, moderate, clement, restrained","extreme, severe, harsh, immoderate"],
+["temporally","adv. 시간적으로","chronologically, sequentially, time-wise","spatially, causally, atemporally, non-temporally"],
+["tout","v. 과대 선전하다, 칭찬하다","promote, praise, acclaim, advertise","disparage, criticize, denigrate, condemn"],
+["traditional","a. 전통적인, 종래의","conventional, customary, established, classic","modern, unconventional, novel, innovative"],
+["transfer","v. 이동시키다, 넘겨주다","convey, transmit, shift, relocate","retain, keep, hold, receive"],
+["transform","v. 변형시키다, 변화시키다","alter, convert, modify, reshape","maintain, preserve, stabilize, retain"],
+["translate","v. 번역하다, 해석하다","interpret, render, convert, decipher","distort, misinterpret, misrepresent, obscure"],
+["trigger","v. 유발하다, 작동시키다, 촉발하다","provoke, instigate, initiate, prompt, set off","prevent, halt, stop, suppress, inhibit"],
+["trivialize","v. 하찮게 여기다, 경시하다","belittle, underestimate, downplay, minimize","emphasize, magnify, exaggerate, highlight"],
+["underlying","a. 기저의, 근원적인, 잠재적인","inherent, fundamental, latent, implicit","superficial, explicit, apparent, obvious"],
+["universal","a. 보편적인, 전 세계적인","global, widespread, common, pervasive","specific, particular, local, limited"],
+["unnoticed","a. 눈에 띄지 않는, 간과된","unobserved, overlooked, unseen, hidden","noticed, observed, conspicuous, visible"],
+["unquestioned","a. 의심받지 않는, 당연시되는","undisputed, unchallenged, accepted, acknowledged","questioned, debated, disputed, challenged"],
+["unreliable","a. 신뢰할 수 없는, 믿을 수 없는","untrustworthy, undependable, dubious, inconsistent","reliable, trustworthy, dependable, consistent"],
+["unstable","a. 불안정한, 변하기 쉬운","volatile, erratic, precarious, fluctuating","stable, steady, firm, consistent"],
+["unsuitable","a. 부적합한, 부적절한","inappropriate, unfitting, improper, inadequate","suitable, appropriate, proper, fitting"],
+["urban","a. 도시의","civic, metropolitan, municipal, city-related","rural, rustic, provincial, pastoral"],
+["validity","n. 유효성, 타당성","legitimacy, soundness, justification, authenticity","invalidity, fallacy, illegitimacy, falsehood"],
+["value","v. 소중히 여기다, 평가하다","cherish, appreciate, prize, esteem","disregard, despise, neglect, underestimate"],
+["variation","n. 변화, 다양성, 차이","diversity, difference, divergence, fluctuation","uniformity, constancy, stability, sameness"],
+["verified","a. 검증된, 확인된","confirmed, validated, authenticated, proven","unverified, unconfirmed, disputed, false"],
+["verify","v. 확인하다, 검증하다","confirm, authenticate, validate, substantiate","dispute, falsify, disprove, contradict"],
+["vital","a. 필수적인, 생명 유지에 필요한","essential, crucial, indispensable, critical","trivial, unimportant, negligible, peripheral"],
+["wary","a. 조심하는, 경계하는","cautious, watchful, guarded, suspicious","unwary, trusting, careless, reckless"],
+["widespread","a. 광범위한, 널리 퍼진","prevalent, extensive, pervasive, omnipresent","limited, confined, restricted, localized"]
+];
+const root=document.getElementById('root');
+const STORE='vocab_dedup_v1';
+let done=JSON.parse(localStorage.getItem(STORE)||'{}');
+let total=DATA.length, letters=[];
+let curL='';
+DATA.forEach((w,i)=>{
+  const L=w[0][0].toUpperCase();
+  if(L!==curL){
+    curL=L; letters.push(L);
+    const cnt=DATA.filter(x=>x[0][0].toUpperCase()===L).length;
+    const h=document.createElement('div');
+    h.className='alpha'; h.id='L'+L;
+    h.innerHTML='<span class="L">'+L+'</span><span class="c">'+cnt+' words</span>';
+    root.appendChild(h);
+  }
+  const key='w'+i;
+  const e=document.createElement('div');
+  e.className='entry'+(done[key]?' done':'');
+  e.dataset.s=(w[0]+' '+w[1]).toLowerCase();
+  e.innerHTML=
+    '<span class="chk no-print'+(done[key]?' checked':'')+'" data-k="'+key+'"></span>'+
+    '<div class="body">'+
+      '<div class="l1"><span class="en">'+w[0]+'</span><span class="ko">'+w[1]+'</span></div>'+
+      '<div class="sa syn"><span class="lab">유</span>'+w[2]+'</div>'+
+      '<div class="sa ant"><span class="lab">반</span>'+w[3]+'</div>'+
+    '</div>';
+  root.appendChild(e);
+});
+
+// A-Z nav
+const az=document.getElementById('aznav');
+letters.forEach(L=>{const a=document.createElement('a');a.href='#L'+L;a.textContent=L;az.appendChild(a);});
+
+// progress
+function upd(){
+  const n=Object.values(done).filter(Boolean).length;
+  document.getElementById('barFill').style.width=(n/total*100)+'%';
+  document.getElementById('barTxt').textContent=n+' / '+total;
+}
+upd();
+
+// checkbox
+root.addEventListener('click',ev=>{
+  const c=ev.target.closest('.chk'); if(!c)return;
+  const k=c.dataset.k; done[k]=!done[k];
+  c.classList.toggle('checked',done[k]);
+  c.closest('.entry').classList.toggle('done',done[k]);
+  localStorage.setItem(STORE,JSON.stringify(done)); upd();
+});
+document.getElementById('btnReset').addEventListener('click',()=>{
+  if(!confirm('암기 체크를 모두 초기화할까요?'))return;
+  done={}; localStorage.removeItem(STORE);
+  document.querySelectorAll('.chk').forEach(c=>c.classList.remove('checked'));
+  document.querySelectorAll('.entry').forEach(e=>e.classList.remove('done')); upd();
+});
+
+// hide-meaning
+const bh=document.getElementById('btnHide');
+bh.addEventListener('click',()=>{
+  document.body.classList.toggle('hideMode');
+  bh.classList.toggle('on');
+  bh.textContent=document.body.classList.contains('hideMode')?'뜻 보이기':'뜻 가리기';
+});
+root.addEventListener('click',ev=>{
+  if(!document.body.classList.contains('hideMode'))return;
+  const cell=ev.target.closest('.ko,.sa'); if(!cell)return;
+  cell.classList.toggle('reveal');
+});
+
+// search
+document.getElementById('q').addEventListener('input',e=>{
+  const v=e.target.value.trim().toLowerCase();
+  document.querySelectorAll('.entry').forEach(en=>{
+    en.classList.toggle('hidden', v && !en.dataset.s.includes(v));
+  });
+  // hide empty letter groups
+  document.querySelectorAll('.alpha').forEach(a=>{
+    let n=a.nextElementSibling, show=false;
+    while(n && !n.classList.contains('alpha')){
+      if(n.classList.contains('entry')&&!n.classList.contains('hidden')){show=true;break;}
+      n=n.nextElementSibling;
+    }
+    a.classList.toggle('hidden', v && !show);
+  });
+});
+document.getElementById('btnPrint').addEventListener('click',()=>window.print());
+</script>
+<script>
+if('serviceWorker' in navigator){
+  window.addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));
+}
+</script>
+</body>
+</html>
